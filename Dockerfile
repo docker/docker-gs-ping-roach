@@ -1,8 +1,8 @@
 ##
-## Build
+## THe build image
 ##
 
-FROM golang:1.16-buster AS build
+FROM golang:1.19-bookworm AS build
 
 WORKDIR /app
 
@@ -15,10 +15,10 @@ COPY *.go ./
 RUN go build -o /docker-gs-ping-roach
 
 ##
-## Deploy
+## The runtime image
 ##
 
-FROM gcr.io/distroless/base-debian10
+FROM gcr.io/distroless/base-debian12
 
 WORKDIR /
 
